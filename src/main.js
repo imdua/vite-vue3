@@ -3,6 +3,7 @@ import "./assets/main.scss";
 import { createApp } from "vue";
 import { createPinia } from "pinia";
 import App from "./App.vue";
+import {createRouter, createWebHashHistory} from 'vue-router'
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
