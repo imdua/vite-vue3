@@ -1,12 +1,12 @@
 <script setup>
-import TodoListItem from "./TodoListItem.vue";
-import "./TodoList.scss";
+import TodoListItem from './TodoListItem.vue'
+import './TodoList.scss'
 
-defineProps(["todos"]);
+defineProps(['todos'])
 </script>
 
 <template>
-  <div className="TodoList">
+  <div class="TodoList">
     <TodoListItem
       v-for="(todo, idx) in todos"
       :key="idx"
@@ -19,3 +19,5 @@ defineProps(["todos"]);
           onChangeSelectedTodo={onChangeSelectedTodo} -->
   </div>
 </template>
+
+<style lang="scss" scoped></style>
