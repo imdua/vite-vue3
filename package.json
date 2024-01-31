@@ -1,5 +1,5 @@
 {
-  "homepage": "https://imdua.github.io/",
+  "homepage": "https://imdua.github.io/vite-vue3/",
   "name": "vue3-todo",
   "version": "0.0.0",
   "private": true,
@@ -8,13 +8,16 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint .",
-    "lint:eslintrc": "ESLINT_USE_FLAT_CONFIG=false eslint ."
+    "lint:eslintrc": "ESLINT_USE_FLAT_CONFIG=false eslint .",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.5.1",
     "@fortawesome/free-regular-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/vue-fontawesome": "^3.0.5",
+    "gh-pages": "^6.1.1",
     "globals": "^13.24.0",
     "node-sass": "^9.0.0",
     "normalize.css": "^8.0.1",
