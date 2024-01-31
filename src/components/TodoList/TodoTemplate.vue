@@ -26,7 +26,7 @@ watch(todos, (newVal, oldVal) => {
 
 <template>
   <div class="TodoTemplate">
-    <div class="app-title">일정관리</div>
+    <div class="app-title">일정관리 (vite)</div>
     <div class="content">
       <TodoInsert @insert="onInsert" />
       <TodoList :todos="todos" />
