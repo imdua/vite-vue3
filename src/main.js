@@ -15,6 +15,7 @@ import { far } from '@fortawesome/free-regular-svg-icons'
 
 library.add(fas, fab, far)
 
+
 const app = createApp(App)
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.use(createPinia())
