@@ -1,7 +1,5 @@
 <script setup>
-import { ref, watch, 
-  // reactive
- } from 'vue'
+import { ref } from 'vue'
 import TodoInsert from './TodoInsert.vue'
 import TodoList from './TodoList.vue'
 import TodoEdit from './TodoEdit.vue'
@@ -30,16 +28,6 @@ const onInsert = (val) => {
   todos.value.push({ id: nextId, text: val, checked: false })
   nextId.value++
 }
-watch(() => todos.value, (newVal, oldVal) => {
-  console.log('@watch: todos: new', newVal)
-  console.log('@watch: todos: old', oldVal)
-  // eslint-disable-next-line no-debugger
-  debugger
-})
-// watch([nextId, todos], ([newNextId, newTodos]) => {
-//   console.log(newNextId)
-//   console.log(newTodos)
-// })
 
 const findItemIndex = (id) => {
   return todos.value.findIndex((todo) => todo.id === id)
@@ -49,11 +37,7 @@ const onToggle = (id) => {
   todos.value[findItemIndex(id)].checked = !bool
 }
 const onRemove = (id) => {
-  // console.log(todos.value)
-  // // eslint-disable-next-line no-debugger
-  // debugger
   todos.value.splice(findItemIndex(id), 1)
-  // console.log(todos.value)
 }
 </script>
 

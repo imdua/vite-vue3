@@ -1,20 +1,17 @@
 <script setup>
-import { ref } from 'vue'
 import './TodoListItem.scss'
 
 /**
  * defineProps와 defineEmits는 script setup 내에서만 사용할 수 있으며,
  * import 할 필요 없이 script setup이 처리될 때 컴파일 된다.
  */
-const props = defineProps({
+defineProps({
   todo: {
     type: Object,
     default: () => {},
   },
 })
 const emit = defineEmits(['toggle', 'remove'])
-
-const text = ref(props.todo.text)
 
 const onToggle = (id) => {
   emit('toggle', id)
@@ -39,7 +36,7 @@ const onRemove = (id) => {
           :checked="todo.checked"
         >
         <div class="text">
-          {{ text }}
+          {{ todo.text }}
         </div>
       </div>
       <div
