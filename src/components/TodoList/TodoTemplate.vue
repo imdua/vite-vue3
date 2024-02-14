@@ -20,7 +20,6 @@ const todos = reactive([
  * String, Number, Object 등 어떤 타입이든 사용 가능하다.
  * reactive()에서는 Object 타입만 가능하다. (Object, Array, Map, Set)
  * erf()는 .value를 통해서 접근할 수 있고, reactive()는 붙이지 않아도 그냥 접근 가능하다.
- * 
  * object일 경우 ref()는 재할당 하면 반응형을 유지하지만,
  * reactive()는 재할당 하면 반응형을 잃어버린다.
  */
