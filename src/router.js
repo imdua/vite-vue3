@@ -1,4 +1,6 @@
-import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory,
+  // createWebHistory
+ } from 'vue-router'
 
 const routes = [
   { path: '/', name: 'home', redirect: { name: 'todolist' } },

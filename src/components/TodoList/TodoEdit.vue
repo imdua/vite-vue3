@@ -1,3 +1,32 @@
+<template>
+  <div className="background">
+    <form
+      onSubmit="{onSubmit}"
+      className="todoedit__insert"
+    >
+      <h2>수정하기</h2>
+      <input
+        type="text"
+        placeholder="할 일을 입력하세요."
+        value="{value}"
+        onChange="{onChange}"
+      >
+      <button type="submit">
+        수정하기
+      </button>
+    </form>
+  </div>
+</template>
+
+<script setup>
+
+</script>
+
+<style lang="scss" scoped>
+
+</style>
+
+<!-- 
 import { useCallback, useEffect, useState } from "react";
 import "./TodoEdit.scss";
 
@@ -47,4 +76,4 @@ function TodoEdit({ insertToggle, selectedTodo, onUpdate }) {
     </div>
   );
 }
-export default TodoEdit;
+export default TodoEdit; -->

@@ -41,9 +41,16 @@ const objectOfAttrs = {
 
 <template>
   <div v-bind="objectOfAttrs">
-    <input type="text" placeholder="할 일을 입력하세요." v-model="todoText" />
-    <button type="button" @click="onInsert(todoText)">
-      <font-awesome-icon :icon="['fas', 'plus']" />
+    <input
+      v-model="todoText"
+      type="text"
+      placeholder="할 일을 입력하세요."
+    >
+    <button
+      type="button"
+      @click="onInsert(todoText)"
+    >
+      <FontAwesomeIcon :icon="['fas', 'plus']" />
     </button>
   </div>
 </template>
