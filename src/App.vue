@@ -13,7 +13,7 @@ import Header from './components/Header.vue'
 .app-container {
   display: grid;
   grid-template-columns: 1fr 7fr;
-  grid-gap: 20px;
+  // grid-gap: 20px;
   height: 100vh;
 }
 </style>

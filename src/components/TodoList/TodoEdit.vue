@@ -1,30 +1,48 @@
 <template>
-  <div className="background">
+  <div class="background">
     <form
-      onSubmit="{onSubmit}"
-      className="todoedit__insert"
+      :onSubmit="onSubmit"
+      class="todoedit__insert"
     >
       <h2>수정하기</h2>
       <input
         type="text"
         placeholder="할 일을 입력하세요."
-        value="{value}"
-        onChange="{onChange}"
-      >
-      <button type="submit">
-        수정하기
-      </button>
+        :value="txtVal"
+        :onChange="onChange"
+      />
+      <!-- onChange="{onChange}" -->
+      <button type="submit">수정하기</button>
     </form>
   </div>
 </template>
 
 <script setup>
+import './TodoEdit.scss'
+import { ref, onMounted } from 'vue'
 
+const props = defineProps({
+  selectedTodo: {
+    type: Object,
+    default: () => { },
+  },
+})
+
+const txtVal = ref('')
+
+onMounted(() => {
+  txtVal.value = props.selectedTodo.text
+})
+
+const onSubmit = (params) => {
+  console.log(params)
+}
+const onChange = (txt) => {
+  txtVal.value = txt
+}
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
 
 <!-- 
 import { useCallback, useEffect, useState } from "react";

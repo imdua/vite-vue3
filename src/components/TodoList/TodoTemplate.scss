@@ -1,6 +1,13 @@
-.TodoTemplate {
+.TodoWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.todo-template {
   width: 512px;
-  margin: 6rem auto 0 auto;
   border-radius: 4px;
   overflow: hidden;
 }

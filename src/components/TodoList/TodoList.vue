@@ -1,20 +1,23 @@
 <script setup>
-import {watch} from 'vue'
+import { watch } from 'vue'
 import TodoListItem from './TodoListItem.vue'
 import './TodoList.scss'
 
 const props = defineProps({
   todos: {
     type: Array,
-    default: () => []
-  }
+    default: () => [],
+  },
 })
-const emit = defineEmits(['toggle', 'remove'])
+const emit = defineEmits(['toggle', 'change', 'remove'])
 const onToggle = (id) => {
   emit('toggle', id)
 }
 const onRemove = (id) => {
   emit('remove', id)
+}
+const onChangeSelectedTodo = (todo) => {
+  emit('change', todo)
 }
 
 watch(props.todos, (newVal, oldVal) => {
@@ -31,11 +34,8 @@ watch(props.todos, (newVal, oldVal) => {
       :todo="todo"
       @toggle="onToggle"
       @remove="onRemove"
+      @change="onChangeSelectedTodo"
     />
-    <!-- onToggle={onToggle}
-          onRemove={onRemove}
-          onInsertToggle={onInsertToggle}
-          onChangeSelectedTodo={onChangeSelectedTodo} -->
   </div>
 </template>
 

@@ -24,11 +24,13 @@ const todos = ref([
  * reactive()는 재할당 하면 반응형을 잃어버린다.
  */
 const nextId = ref(4)
+const insertToggle = ref(false)
+const selectedTodo = ref(null)
+
 const onInsert = (val) => {
   todos.value.push({ id: nextId, text: val, checked: false })
   nextId.value++
 }
-
 const findItemIndex = (id) => {
   return todos.value.findIndex((todo) => todo.id === id)
 }
@@ -39,32 +41,34 @@ const onToggle = (id) => {
 const onRemove = (id) => {
   todos.value.splice(findItemIndex(id), 1)
 }
+const onChangeSelectedTodo = (todo) => {
+  selectedTodo.value = todo
+  insertToggle.value = true
+}
 </script>
 
 <template>
-  <div class="TodoTemplate">
-    <div class="app-title">
-      일정관리 (vite-vue3)
+  <div class="TodoWrapper">
+    <div class="todo-template">
+      <div class="app-title">일정관리 (vite-vue3)</div>
+      <div class="content">
+        <TodoInsert @insert="onInsert" />
+        <TodoList
+          :todos="todos"
+          @toggle="onToggle"
+          @remove="onRemove"
+          @change="onChangeSelectedTodo"
+        />
+        <TodoEdit
+          v-if="insertToggle"
+          :selected-todo="selectedTodo"
+          on-insert-toggle="{onInsertToggle}"
+          insert-toggle="{insertToggle}"
+          on-update="{onUpdate}"
+        />
+      </div>
     </div>
-    <div class="content">
-      <TodoInsert @insert="onInsert" />
-      <TodoList
-        :todos="todos"
-        @toggle="onToggle"
-        @remove="onRemove"
-      />
-      <!-- onToggle="{onToggle}"
-    onRemove="{onRemove}"
-    onChangeSelectedTodo="{onChangeSelectedTodo}"
-    onInsertToggle="{onInsertToggle}" -->
-      <TodoEdit
-        v-if="insertToggle"
-        selected-todo="{selectedTodo}"
-        on-insert-toggle="{onInsertToggle}"
-        insert-toggle="{insertToggle}"
-        on-update="{onUpdate}"
-      />
-    </div>
+    <div />
   </div>
 </template>
 

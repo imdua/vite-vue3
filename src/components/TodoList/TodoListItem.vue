@@ -8,19 +8,19 @@ import './TodoListItem.scss'
 defineProps({
   todo: {
     type: Object,
-    default: () => {},
+    default: () => { },
   },
 })
-const emit = defineEmits(['toggle', 'remove'])
+const emit = defineEmits(['toggle', 'change', 'remove'])
 
 const onToggle = (id) => {
   emit('toggle', id)
 }
-const onChangeSelectedTodo = (todo) => {
-  console.log(todo)
-}
 const onRemove = (id) => {
   emit('remove', id)
+}
+const onChangeSelectedTodo = (todo) => {
+  emit('change', todo)
 }
 </script>
 
@@ -41,12 +41,10 @@ const onRemove = (id) => {
       </div>
       <div
         class="edit"
-        @click="
-          () => {
-            onChangeSelectedTodo(todo)
-            onInsertToggle()
-          }
-        "
+        @click="() => {
+          onChangeSelectedTodo(todo)
+          onInsertToggle()
+        }"
       >
         <FontAwesomeIcon :icon="['fas', 'pen']" />
       </div>
