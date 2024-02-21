@@ -45,6 +45,10 @@ const onChangeSelectedTodo = (todo) => {
   selectedTodo.value = todo
   insertToggle.value = true
 }
+const onUpdate = (param) => {
+  todos.value[findItemIndex(param.id)].text = param.val
+  insertToggle.value = false
+}
 </script>
 
 <template>
@@ -62,10 +66,10 @@ const onChangeSelectedTodo = (todo) => {
         <TodoEdit
           v-if="insertToggle"
           :selected-todo="selectedTodo"
-          on-insert-toggle="{onInsertToggle}"
-          insert-toggle="{insertToggle}"
-          on-update="{onUpdate}"
+          @update="onUpdate"
         />
+        <!-- on-insert-toggle="{onInsertToggle}"
+          insert-toggle="{insertToggle}" -->
       </div>
     </div>
     <div />

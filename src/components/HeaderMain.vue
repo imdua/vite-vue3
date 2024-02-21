@@ -35,6 +35,7 @@ const menuList = ref([
 <style lang="scss" scoped>
 .app-header {
   box-shadow: 5px 0px 20px #dee2e6;
+
   .logo-area {
     display: grid;
     justify-content: space-evenly;
@@ -43,9 +44,11 @@ const menuList = ref([
     padding: 10px 0;
     cursor: pointer;
   }
+
   ul {
     list-style: none;
     margin: 20px 0 0 0;
+
     li {
       margin-bottom: 20px;
     }
